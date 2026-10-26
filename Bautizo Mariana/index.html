@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mi Bautizo · Mariana</title>
+  
+  <!-- Fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  
+  <!-- Enlace al archivo CSS en su carpeta -->
+  <link rel="stylesheet" href="../Bautizo Mariana/css/styles.css">
+</head>
+
+<body>
+
+  <!-- Audio de fondo -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="../Bautizo Mariana/La Magia del Piano  (Música  Instrumental de Piano, Música hermosa y relajante).mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Botón flotante para pausar/activar la música -->
+  <button id="musicToggle" class="music-btn" title="Controlar música" aria-label="Música">
+    🎵
+  </button>
+
+  <!-- =========================================
+       PORTADA DE BIENVENIDA
+       ========================================= -->
+  <div class="cover" id="cover">
+    <div class="bg" id="cbg" style="background-image: url('Fotos/Mariana1.jpeg');"></div>
+    
+    <i class="cloud" style="top:10%;left:8%;background:#fff;opacity:.85;border-color:#fff;z-index:2"></i>
+    <i class="cloud" style="top:7%;right:8%;background:#fff;opacity:.85;border-color:#fff;z-index:2;animation-delay:-4s"></i>
+    
+    <div class="in2" style="text-align:center">
+      <p class="tiny">Mi bautizo</p>
+      <h1>Mariana</h1>
+      <p class="msg">
+        Con la bendición de Dios y el amor de nuestra familia, te invitamos a celebrar el Bautizo de nuestro hijo.
+      </p>
+      
+      <!-- Cuadro de invitado conectado a Supabase -->
+      <div class="guest">
+        <span class="tiny" style="font-size:.55rem">Esta invitación es para</span>
+        <b id="coverGuest">Cargando...</b>
+        <span class="tiny" id="coverPasses" style="font-size:.6rem;font-weight:400">Verificando pases...</span>
+      </div>
+      
+      <button class="go" id="go">✉ Ver mi invitación</button>
+    </div>
+  </div>
+
+  <!-- =========================================
+       CONTENIDO PRINCIPAL
+       ========================================= -->
+  <main class="pre" id="main">
+
+    <!-- 1. Hero y Padres -->
+    <section class="hero">
+      <i class="cloud" style="top:14px;left:14px"></i>
+      <i class="cloud" style="top:20px;right:14px;animation-delay:-3s"></i>
+      
+      <div class="badge rv z in">
+        <div>
+          <i>Mi Bautizo</i>
+          <h1>Mariana</h1>
+          <small>26 · 12 · 2026</small>
+        </div>
+      </div>
+      
+      <p class="verse rv">
+        Un momento de fe, amor<br>
+        y bendiciones que quedará<br>
+        para siempre en nuestro corazón.
+      </p>
+      
+      <div class="pol rv z has" style="transform:rotate(3deg); width:180px; height:210px; background-image: url('Fotos/Mariana2.jpeg');"></div>
+      
+      <div class="parents" style="margin-top:50px">
+        <span class="tiny rv">Mis padres</span>
+        <p class="rv">Andrés Proaño y Gabriela Silva </p>
+        
+        <span class="tiny rv">Mi padrino</span>
+        <p class="rv">Mariana Burbano Villacrés</p>
+      </div>
+    </section>
+
+    <!-- 2. Cuenta Regresiva -->
+    <section style="padding-top:10px">
+      <div class="count rv z">
+        <span class="tiny" style="font-size:.5rem">Faltan para el bautizo</span>
+        <div class="row">
+          <div><b id="d">0</b><em>días</em></div>:
+          <div><b id="h">0</b><em>hrs</em></div>:
+          <div><b id="m">0</b><em>min</em></div>:
+          <div><b id="s">0</b><em>seg</em></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Ceremonia y Recepción -->
+    <section style="padding-top:0">
+      <h2 class="rv">La Ceremonia</h2>
+      <p class="sub rv" id="t1">11:00 AM HRS</p>
+      <div class="card rv l">
+        <div class="ico">⛪</div>
+        <h3>Iglesia Católica Nuestra Señora de la Paz</h3>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Iglesia+Cat%C3%B3lica+Nuestra+Se%C3%B1ora+de+la+Paz/data=!4m2!3m1!1s0x91d59a70dbabcc39:0xa57abccc006adef7">
+          📍 Ver ubicación
+        </a>
+      </div>
+
+      <h2 class="rv" style="margin-top:40px">La Recepción</h2>
+      <p class="sub rv" id="t2">1:00 PM HRS</p>
+      <div class="card rv r">
+        <div class="ico">🥂</div>
+        <h3>Plaza Whymper</h3>
+        <p class="sub" style="margin:0 0 12px">QUITO</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://maps.app.goo.gl/3ixsUBGqAZhEstmz5">
+          📍 Ver ubicación
+        </a>
+      </div>
+    </section>
+
+    <!-- 4. Galería de Fotos -->
+    <section>
+      <h2 class="rv">Algunos momentos</h2>
+      <p class="tiny rv" style="font-size:.5rem;margin-top:4px">Mariana</p>
+      <div class="gal" id="gal"></div>
+    </section>
+
+    <!-- 5. Código de Vestimenta -->
+    <section class="band" style="padding:30px 22px">
+      <p class="tiny rv" style="font-size:.5rem">Código de vestimenta</p>
+      <h2 class="rv" style="font-size:2.2rem">Formal</h2>
+      <p class="rv" style="font-size:.62rem;font-style:italic;margin-top:10px">
+        Tu mejor accesorio: tu sonrisa y las ganas de hacer de este día un recuerdo inolvidable.
+      </p>
+    </section>
+
+    <!-- 6. Mesa de Regalos / Obsequios -->
+    <section class="band2" style="padding:36px 22px 44px">
+      <p class="tiny rv" style="font-size:.5rem">Un presente</p>
+      <h2 class="rv" style="font-size:2.3rem">Obsequios</h2>
+      <div class="rv" style="font-size:1.4rem;margin-top:6px">🎁</div>
+      <p class="rv" style="font-size:.7rem">Lluvia de sobres</p>
+      
+      <div class="card rv z" style="max-width:220px;margin:18px auto 0;padding:16px">
+        <div>🏦</div>
+        <p class="tiny" style="font-size:.45rem;margin:6px 0 10px">Datos para transferencia</p>
+        <button class="btn" id="openBankBtn">
+          Ver datos bancarios
+        </button>
+      </div>
+    </section>
+
+    <!-- Separador decorativo -->
+    <div class="photo-band rv">👶</div>
+
+    <!-- 7. Confirmación de Asistencia (RSVP) -->
+    <section>
+      <h2 class="rv">Confirmación</h2>
+      <div class="rv" style="margin:8px 0">💌</div>
+      <p class="rv" style="font-size:.6rem;font-style:italic">
+        No hay distancia cuando el cariño nos une. Gracias por venir y ser parte de nuestro día especial.
+      </p>
+      <p class="rv" style="margin-top:20px;font-size:.85rem">
+        Hola, <span id="guest">Invitado Especial</span>
+      </p>
+      <p class="tiny rv" style="font-size:.45rem;margin-top:6px">
+        Por favor confirmar asistencia antes del
+      </p>
+      <p class="rv" style="font-size:.65rem;font-weight:600;letter-spacing:.1em">
+        20 DE DICIEMBRE DE 2026
+      </p>
+      
+      <button class="btn solid rv" id="rsvp">Confirmar asistencia</button>
+      
+      <div class="ok" id="ok">
+        <div class="check">✓</div>
+        <p style="font-size:.72rem">
+          ¡Gracias por confirmar! Los esperamos con <span id="pases">0</span> pase(s).
+        </p>
+      </div>
+    </section>
+
+    <!-- 8. Pie de página / Agradecimiento -->
+    <section class="thanks">
+      <div class="rv" style="margin-bottom:10px">💧</div>
+      <h2 class="rv">Gracias por acompañarnos</h2>
+    </section>
+
+  </main>
+
+  <!-- =========================================
+       MODAL: DATOS BANCARIOS
+       ========================================= -->
+  <div class="modal" id="bank">
+    <div class="box">
+      <h3>Datos bancarios</h3>
+      <p>
+        <b>Banco:</b>Banco Pichincha<br>
+        <b>Tipo de cuenta:</b> Ahorros<br>
+        <b>N.º:</b> 2200547876<br>
+        <b>Cedula:1724227259</b>
+        <b>Titular:</b> Gabriela Nathaly Silva Solano 
+        
+      </p>
+      <button class="btn" id="closeBankBtn" style="margin-top:14px">
+        Cerrar
+      </button>
+    </div>
+  </div>
+
+  <!-- 1. Librería oficial de Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <!-- 2. Tu archivo JavaScript -->
+  <script src="../Bautizo Mariana/js/script.js"></script>
+</body>
+</html>
